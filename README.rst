@@ -53,9 +53,3 @@ Changelog
 - 0.0.3 – Move documentation from module docstring to README.rst
 - 0.0.2 – Python 3.3, 3.4 support
 - 0.0.1 – Initial release
-
-Please report any bugs at
-
-    https://www.github.com/casebeer/python-hkdf
-
-
