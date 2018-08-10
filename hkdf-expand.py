@@ -36,20 +36,26 @@ def main():
         # keys wont be prefixes of longer derived keys.
         info = info + struct.pack('>I', args.length)
 
-    file = sys.stdin
+    key_file = sys.stdin
     if args.key != '-':
-        file = open(args.key, 'r')
+        key_file = open(args.key, 'r')
 
-    key = file.read()
-    output = hkdf_expand(pseudo_random_key=key, info=info, length=args.length, hash_object=hashlib.sha256)
+
+
+    key_data = key_file.read()
+    output = hkdf_expand(
+        pseudo_random_key=key_data,
+        info=info,
+        length=args.length,
+        hash_object=hashlib.sha256
+    )
 
     sys.stdout.write(output)
 
     if args.key != '-':
-        file.close()
+        key_file.close()
 
 
 
 if __name__ == '__main__':
     main()
-
